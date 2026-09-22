@@ -1,0 +1,40 @@
+[
+  {
+    "mode": "multi",
+    "status": "partial",
+    "elapsed": 5.3,
+    "model_calls": 1,
+    "reported_tokens": 0,
+    "tool_calls": 0,
+    "stages": [
+      {
+        "agent": "日志分析",
+        "status": "failed",
+        "reason": "阶段调用失败（APIConnectionError），请检查模型配置或网络",
+        "elapsed": 5.29,
+        "tool_calls": 0
+      },
+      {
+        "agent": "源码定位",
+        "status": "skipped",
+        "reason": "日志阶段没有取得证据",
+        "elapsed": 0.0,
+        "tool_calls": 0
+      },
+      {
+        "agent": "故障知识",
+        "status": "skipped",
+        "reason": "日志阶段没有取得证据",
+        "elapsed": 0.0,
+        "tool_calls": 0
+      },
+      {
+        "agent": "诊断汇总",
+        "status": "skipped",
+        "reason": "缺少当前日志证据，不生成根因结论",
+        "elapsed": 0.0,
+        "tool_calls": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "redis-connection",
+    "name": "Redis 连接失败",
+    "keyword": "RedisConnectionFailureException",
+    "level": "ERROR",
+    "expected_exception": "io.lettuce.core.RedisConnectionException",
+    "expected_trace_id": "trace-redis-002"
+  },
+  {
+    "id": "db-pool-timeout",
+    "name": "数据库连接池超时",
+    "keyword": "HikariPool-1",
+    "level": "ERROR",
+    "expected_exception": "java.sql.SQLTransientConnectionException",
+    "expected_trace_id": "trace-db-004"
+  },
+  {
+    "id": "mq-downstream-timeout",
+    "name": "MQ 消费下游超时",
+    "keyword": "inventory service did not respond",
+    "level": "ERROR",
+    "expected_exception": "java.util.concurrent.TimeoutException",
+    "expected_trace_id": "trace-mq-005"
+  }
+]

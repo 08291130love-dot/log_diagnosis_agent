@@ -1,0 +1,8 @@
+DEFAULT_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+DEFAULT_CHAT_MODEL = "qwen3.8-max"
+DEFAULT_EMBEDDING_MODEL = "text-embedding-v4"
+
+MAX_LOG_FILE_BYTES = 10 * 1024 * 1024
+MAX_SOURCE_FILES = 30
+MAX_SOURCE_BYTES = 5 * 1024 * 1024
+MAX_KNOWLEDGE_BYTES = 20 * 1024 * 1024

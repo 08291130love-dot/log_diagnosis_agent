@@ -1,0 +1,26 @@
+2026-09-19 10:00:00.101 INFO [shop-service,trace-ok-001,span-01] [http-nio-8080-exec-1] com.demo.OrderController : create order request userId=1001 voucherId=9
+2026-09-19 10:00:00.128 INFO [shop-service,trace-ok-001,span-02] [http-nio-8080-exec-1] com.demo.StockService : stock validation passed voucherId=9
+2026-09-19 10:00:00.154 INFO [shop-service,trace-ok-001,span-03] [http-nio-8080-exec-1] com.demo.OrderService : order created orderId=202609190001
+2026-09-19 10:03:14.210 INFO [shop-service,trace-redis-002,span-01] [http-nio-8080-exec-3] com.demo.OrderController : create order request userId=1002 voucherId=9
+2026-09-19 10:03:14.244 ERROR [shop-service,trace-redis-002,span-02] [http-nio-8080-exec-3] com.demo.StockService : inventory precheck failed
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:1552)
+	at com.demo.StockService.checkStock(StockService.java:16)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+2026-09-19 10:03:14.251 ERROR [shop-service,trace-redis-002,span-03] [http-nio-8080-exec-3] com.demo.OrderController : create order failed userId=1002 voucherId=9
+2026-09-19 10:04:02.011 WARN [shop-service,trace-redis-003,span-01] [http-nio-8080-exec-4] com.demo.CacheService : cache query slow elapsedMs=1260 key=shop:9
+2026-09-19 10:05:40.600 INFO [shop-service,trace-db-004,span-01] [http-nio-8080-exec-5] com.demo.ShopController : query shop request shopId=9
+2026-09-19 10:05:42.705 ERROR [shop-service,trace-db-004,span-02] [http-nio-8080-exec-5] com.zaxxer.hikari.pool.HikariPool : Connection is not available, request timed out after 2000ms
+java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
+	at com.demo.ShopRepository.findById(ShopRepository.java:16)
+2026-09-19 10:05:42.711 ERROR [shop-service,trace-db-004,span-03] [http-nio-8080-exec-5] com.demo.ShopController : query shop failed shopId=9
+2026-09-19 10:06:20.101 INFO [shop-service,trace-mq-005,span-01] [rocketmq-consumer-1] com.demo.OrderConsumer : consume order message messageId=MSG-1008
+2026-09-19 10:06:25.221 ERROR [shop-service,trace-mq-005,span-02] [rocketmq-consumer-1] com.demo.OrderConsumer : downstream inventory update timed out messageId=MSG-1008
+java.util.concurrent.TimeoutException: inventory service did not respond within 5000ms
+	at com.demo.InventoryClient.update(InventoryClient.java:15)
+	at com.demo.OrderConsumer.consume(OrderConsumer.java:17)
+2026-09-19 10:06:25.230 WARN [shop-service,trace-mq-005,span-03] [rocketmq-consumer-1] com.demo.OrderConsumer : message will be retried retryTimes=1 messageId=MSG-1008
+2026-09-19 10:08:00.000 INFO [shop-service,trace-ok-006,span-01] [http-nio-8080-exec-6] com.demo.ShopController : query shop succeeded shopId=10 elapsedMs=42
