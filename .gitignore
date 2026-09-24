@@ -1,0 +1,52 @@
+# Local credentials and private configuration
+.env
+*.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+*.pem
+*.key
+
+# Virtual environments and Python caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Build and test output
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local knowledge databases and evaluation output (including nested projects)
+chroma_db/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+**/evaluation/results/
+
+# Runtime logs; keep packaged sample logs
+*.log
+!**/samples/*.log
+
+# Editor, OS and backup files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.bak
+*.before-*
