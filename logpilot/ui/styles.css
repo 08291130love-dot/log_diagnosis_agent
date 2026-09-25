@@ -1,0 +1,125 @@
+.metric-card {border:1px solid #e5e7eb;border-radius:12px;padding:16px;text-align:center;
+              box-shadow:0 2px 7px rgba(0,0,0,.06);background:white}
+.metric-value {font-size:28px;font-weight:700;margin-bottom:4px}
+.metric-label {font-size:14px;color:#667085}
+.evidence {border-left:4px solid #4f46e5;padding:8px 12px;background:#f8f7ff;margin:8px 0}
+.block-container {padding-top:3.25rem !important;padding-bottom:2rem !important}
+/* 缩短侧栏顶部和简介后的留白，保留原生折叠按钮。 */
+[data-testid="stSidebarHeader"] {
+    min-height:0 !important;height:38px !important;
+    padding:4px 12px !important;margin-bottom:0 !important;
+}
+[data-testid="stSidebarUserContent"] {padding-top:0 !important}
+[data-testid="stSidebar"] h1 {padding-top:0 !important;padding-bottom:8px !important}
+.sidebar-brand {display:flex;align-items:center;gap:10px}
+.sidebar-brand-icon {display:flex;align-items:center;justify-content:center;
+    width:32px;height:32px;flex:0 0 32px;border-radius:9px;background:#eaf0ff;color:#2563eb}
+[data-testid="stSidebar"] .sidebar-brand h1 {font-size:23px;font-weight:700;
+    line-height:1.4;margin:0;padding:0 !important;letter-spacing:-.4px}
+[data-testid="stSidebar"] hr {margin:4px 0 !important}
+.upload-title {font-size:18px;font-weight:650;color:#202939;line-height:1.6;margin-bottom:0}
+.upload-help {font-size:14px;color:#667085;line-height:1.8;margin:0;overflow-wrap:anywhere}
+/* 不依赖不同 Streamlit 版本的主区节点名称，侧栏在下方单独覆盖。 */
+[data-testid="stFileUploaderDropzoneInstructions"] {display:none !important}
+[data-testid="stFileUploaderDropzone"] {
+    display:flex;flex-wrap:wrap;gap:12px;
+    min-height:80px !important;
+    padding:16px 18px !important;
+    align-items:center !important;
+    border:1px dashed #c2cedd !important;
+    border-radius:10px;
+    background:#f8fafc !important;
+}
+[data-testid="stFileUploaderDropzone"]::before {
+    content:"拖拽文件到这里，或点击选择文件";
+    color:#475467;
+    font-size:14px;line-height:1.8;
+    flex:1 1 200px;min-width:0;
+}
+[data-testid="stFileUploaderDropzone"] button {
+    margin-left:auto !important;
+    min-width:104px;flex-shrink:0;
+    font-size:0 !important;
+}
+[data-testid="stFileUploaderDropzone"] button > * {display:none !important}
+[data-testid="stFileUploaderDropzone"] button::after {
+    content:"选择文件";
+    font-size:14px;line-height:1.5;
+}
+/* 仅压缩侧栏上传框，保留原生文件选择、拖放和删除行为。 */
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzoneInstructions"] {
+    display:none !important;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
+    display:flex;flex-direction:column;align-items:stretch;gap:12px;
+    padding:16px !important;min-height:0 !important;
+    background:#fff;border:1px dashed #ccd5e1;border-radius:12px;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"]::before {
+    content:"拖拽文件到此处";font-size:13px;line-height:1.6;
+    color:#667085;text-align:center;flex:0 0 auto;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button {
+    width:100%;min-height:36px;margin:0;padding:7px 12px;
+    border:1px solid #d5deea;border-radius:8px;background:#f8fafc;
+    color:#344054;font-size:0 !important;line-height:1.5;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button > * {
+    display:none !important;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button::after {
+    content:"选择文件";font-size:14px;line-height:1.5;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button:hover {
+    border-color:#94a9c4;background:#eef3fa;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button:focus-visible {
+    outline:2px solid #6091de;outline-offset:2px;
+}
+.sidebar-upload-help {font-size:12px;line-height:1.7;color:#667085;margin:-4px 0 2px;overflow-wrap:anywhere}
+/* 侧栏导航保留原生单选交互，仅替换视觉样式。 */
+[data-testid="stSidebar"] [data-testid="stElementContainer"]:has(> [data-testid="stRadio"]) {
+    width:100% !important;max-width:none !important;align-self:stretch;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] {
+    width:100%;max-width:none;align-self:stretch;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] > label p {
+    font-size:12px;color:#8592a6;line-height:1.6;padding-left:14px;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {
+    display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:4px 0;width:100% !important;max-width:none;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"] {
+    box-sizing:border-box;display:flex;align-items:center;gap:14px;
+    width:100% !important;max-width:none !important;align-self:stretch;flex:0 0 auto;
+    min-height:48px;margin:0;padding:12px 16px;
+    border-radius:12px;background:transparent;color:#4e6685;
+    transition:background .15s ease,color .15s ease;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"] > div:first-of-type {
+    display:none;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"] > div:last-of-type {
+    padding:0;margin:0;min-width:0;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"] p {
+    font-size:15px;line-height:1.6;white-space:nowrap;color:inherit;margin:0;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]::before {
+    display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 18px;width:18px;font-size:18px;line-height:1;color:inherit;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:nth-of-type(1)::before {content:"◇"}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:nth-of-type(2)::before {content:"≡"}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:nth-of-type(3)::before {content:"▤"}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:nth-of-type(4)::before {content:"▥"}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:hover {
+    background:#f3f6fc;color:#2563eb;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:has(input:checked) {
+    background:#eaf0ff;color:#2563eb;box-shadow:inset 3px 0 0 #2563eb;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:has(input:focus-visible) {
+    outline:2px solid #90b2fb;outline-offset:2px;
+}

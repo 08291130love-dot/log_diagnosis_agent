@@ -31,6 +31,7 @@ build/
 htmlcov/
 
 # Local knowledge databases and evaluation output (including nested projects)
+/data/
 chroma_db/
 *.sqlite
 *.sqlite3

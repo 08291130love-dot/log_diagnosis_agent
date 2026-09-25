@@ -8,3 +8,4 @@ python-dotenv==1.1.1
 pandas>=2.2,<3
 chromadb==1.5.4
 pypdf==6.8.0
+mcp==2.2.0

@@ -1,22 +1,15 @@
 import unittest
 
-from agent.tools import build_agent_tools
-from agent.tools.log_tools import build_log_tools
-from core.parser import parse_spring_boot_logs
-from evaluation.evaluator import evaluate_cases
-from rag.knowledge_base import split_text
-from repositories.log_repository import LogRepository
-from repositories.source_repository import SourceRepository, extract_stack_frames
+from logpilot.agents.tools import build_agent_tools
+from logpilot.agents.tools.log_tools import build_log_tools
+from logpilot.core.parser import parse_spring_boot_logs
+from logpilot.evaluation.evaluator import evaluate_cases
+from logpilot.rag.knowledge_base import split_text
+from logpilot.repositories.log_repository import LogRepository
+from logpilot.repositories.source_repository import SourceRepository, extract_stack_frames
 
 
-SAMPLE = """2026-09-19 10:00:00.000 INFO [shop,trace-1,span-1] [http-1] demo.Order : start
-2026-09-19 10:00:00.050 ERROR [shop,trace-1,span-2] [http-1] demo.Stock : failed
-org.springframework.data.redis.RedisConnectionFailureException: Unable to connect
-\tat demo.Stock.check(Stock.java:42)
-Caused by: io.lettuce.core.RedisConnectionException: Connection refused
-\tat io.lettuce.Client.connect(Client.java:10)
-2026-09-19 10:00:00.060 WARN [shop,trace-2,span-1] [http-2] demo.Cache : slow query
-"""
+from tests.fixtures.logs import SAMPLE
 
 
 class SpringLogParserTests(unittest.TestCase):

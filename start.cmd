@@ -6,7 +6,7 @@ if not exist ".venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
-".venv\Scripts\python.exe" launch.py %*
+".venv\Scripts\python.exe" -B -m scripts.launch %*
 if errorlevel 1 (
   echo Startup failed. Please keep the error above for troubleshooting.
   pause
